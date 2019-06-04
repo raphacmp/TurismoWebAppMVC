@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TurismoWebAppMVC.Models;
+using TurismoWebAppMVC.Models.Enums;
 
 namespace TurismoWebAppMVC.Models
 {
@@ -19,5 +20,10 @@ namespace TurismoWebAppMVC.Models
         public DbSet<TurismoWebAppMVC.Models.Viagem> Viagem { get; set; }
 
         public DbSet<TurismoWebAppMVC.Models.Guia> Guia { get; set; }
+
+        public DbSet<TurismoWebAppMVC.Models.Estados> Estados
+        {
+            get; set;
+        }
     }
 }

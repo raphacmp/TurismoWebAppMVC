@@ -1,47 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using TurismoWebAppMVC.Models.Enums;
 
 namespace TurismoWebAppMVC.Models
 {
-    public class PontoTuristico
+    public class Estados
     {
         [Key]
         public int Id
         {
             get; set;
         }
-        public string Nome
+
+        [Required, MaxLength(2)]
+        public string UF
         {
             get; set;
         }
-        public string Bairro
-        {
-            get; set;
-        }
-        public string Uf
-        {
-            get; set;
-        }
+
         public string Descricao
         {
             get; set;
         }
 
-        public PontoTuristico()
+        public Estados()
         {
         }
 
-        public PontoTuristico(int id, string nome, string bairro, string uf, string descricao)
+        public Estados(int id, string uF, string descricao)
         {
             Id = id;
-            Nome = nome;
-            Bairro = bairro;
-            Uf = uf;
+            UF = uF;
             Descricao = descricao;
         }
     }
-}

@@ -2,33 +2,22 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TurismoWebAppMVC.Models;
 
 namespace TurismoWebAppMVC.Migrations
 {
     [DbContext(typeof(TurismoWebAppMVCContext))]
-    partial class TurismoWebAppMVCContextModelSnapshot : ModelSnapshot
+    [Migration("20190604182447_Sem_estados")]
+    partial class Sem_estados
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("TurismoWebAppMVC.Models.Estados", b =>
-                {
-                    b.Property<int>("Id");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Estados");
-                });
 
             modelBuilder.Entity("TurismoWebAppMVC.Models.Guia", b =>
                 {

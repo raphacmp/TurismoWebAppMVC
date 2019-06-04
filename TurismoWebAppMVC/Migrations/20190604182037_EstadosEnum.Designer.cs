@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TurismoWebAppMVC.Models;
 
 namespace TurismoWebAppMVC.Migrations
 {
     [DbContext(typeof(TurismoWebAppMVCContext))]
-    partial class TurismoWebAppMVCContextModelSnapshot : ModelSnapshot
+    [Migration("20190604182037_EstadosEnum")]
+    partial class EstadosEnum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,11 +21,14 @@ namespace TurismoWebAppMVC.Migrations
 
             modelBuilder.Entity("TurismoWebAppMVC.Models.Estados", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("Descricao");
+
+                    b.Property<string>("Uf")
                         .IsRequired()
-                        .HasMaxLength(100);
+                        .HasMaxLength(40);
 
                     b.HasKey("Id");
 
