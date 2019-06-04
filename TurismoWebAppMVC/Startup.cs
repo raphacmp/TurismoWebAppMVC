@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using TurismoWebAppMVC.Models;
+using TurismoWebAppMVC.Models.Servicos; 
 
 namespace TurismoWebAppMVC
 {
@@ -36,6 +39,14 @@ namespace TurismoWebAppMVC
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<TurismoWebAppMVCContext>(options =>
+                    //options.UseSqlServer(Configuration.GetConnectionString("TurismoWebAppMVCContext")));
+                    options.UseMySql(Configuration.GetConnectionString("TurismoWebAppMVCContext"), builder =>builder.MigrationsAssembly("TurismoWebAppMVC")));
+
+            services.AddScoped<GuiaServicos>();
+            services.AddScoped<PontoTuristicoServicos>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

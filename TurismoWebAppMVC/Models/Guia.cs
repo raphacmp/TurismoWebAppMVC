@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace TurismoWebAppMVC.Models
 {
-    public class Guia : Colaborador
+    public class Guia
     {
-        public string MatriculaNacional
+        [Key]
+        public int Id
         {
             get; set;
         }
-
-        public Guia()
+        public string Nome
         {
-        }
-
-        public Guia(int id, string nome, string cpf, string matriculaNacional) : base(id, nome, cpf)
-        {
-            MatriculaNacional = matriculaNacional;
+            get; set;
         }
     }
 }

@@ -1,0 +1,30 @@
+﻿@model TurismoWebAppMVC.Models.Viagem
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Viagem</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Guia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Guia)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PontoTuristicoId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PontoTuristicoId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
