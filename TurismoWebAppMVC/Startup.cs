@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using TurismoWebAppMVC.Models;
-using TurismoWebAppMVC.Models.Servicos; 
+using TurismoWebAppMVC.Models.Servicos;
 
 namespace TurismoWebAppMVC
 {
@@ -46,6 +46,7 @@ namespace TurismoWebAppMVC
 
             services.AddScoped<GuiaServicos>();
             services.AddScoped<PontoTuristicoServicos>();
+            services.AddScoped<EstadoServicos>();
 
         }
 
@@ -61,7 +62,7 @@ namespace TurismoWebAppMVC
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

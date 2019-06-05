@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TurismoWebAppMVC.Models;
 
 namespace TurismoWebAppMVC.Migrations
 {
     [DbContext(typeof(TurismoWebAppMVCContext))]
-    partial class TurismoWebAppMVCContextModelSnapshot : ModelSnapshot
+    [Migration("20190604225502_Associado com Estado Class2")]
+    partial class AssociadocomEstadoClass2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,9 +24,11 @@ namespace TurismoWebAppMVC.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Descricao");
 
-                    b.Property<string>("UF");
+                    b.Property<int>("EstadoId");
+
+                    b.Property<string>("Nome");
 
                     b.HasKey("Id");
 

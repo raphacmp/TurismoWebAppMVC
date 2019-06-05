@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using TurismoWebAppMVC.Models.Enums;
 
 namespace TurismoWebAppMVC.Models
 {
@@ -18,30 +17,28 @@ namespace TurismoWebAppMVC.Models
         {
             get; set;
         }
-        public string Bairro
-        {
-            get; set;
-        }
-        public string Uf
-        {
-            get; set;
-        }
         public string Descricao
         {
             get; set;
         }
-
+        public Estado Estado
+        {
+            get; set;
+        }
+        public int EstadoId
+        {
+            get; set;
+        }
         public PontoTuristico()
         {
         }
 
-        public PontoTuristico(int id, string nome, string bairro, string uf, string descricao)
+        public PontoTuristico(int id, string nome, string descricao, Estado estado)
         {
             Id = id;
             Nome = nome;
-            Bairro = bairro;
-            Uf = uf;
             Descricao = descricao;
+            Estado = estado;
         }
     }
 }

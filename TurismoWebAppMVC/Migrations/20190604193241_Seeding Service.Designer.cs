@@ -2,33 +2,36 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TurismoWebAppMVC.Models;
 
 namespace TurismoWebAppMVC.Migrations
 {
     [DbContext(typeof(TurismoWebAppMVCContext))]
-    partial class TurismoWebAppMVCContextModelSnapshot : ModelSnapshot
+    [Migration("20190604193241_Seeding Service")]
+    partial class SeedingService
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("TurismoWebAppMVC.Models.Estado", b =>
+            modelBuilder.Entity("TurismoWebAppMVC.Models.Estados", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Descricao");
 
-                    b.Property<string>("UF");
+                    b.Property<int>("UF")
+                        .HasMaxLength(2);
 
                     b.HasKey("Id");
 
-                    b.ToTable("Estado");
+                    b.ToTable("Estados");
                 });
 
             modelBuilder.Entity("TurismoWebAppMVC.Models.Guia", b =>
@@ -52,13 +55,11 @@ namespace TurismoWebAppMVC.Migrations
 
                     b.Property<string>("Descricao");
 
-                    b.Property<int>("EstadoId");
-
                     b.Property<string>("Nome");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Uf");
 
-                    b.HasIndex("EstadoId");
+                    b.HasKey("Id");
 
                     b.ToTable("PontoTuristico");
                 });
@@ -77,14 +78,6 @@ namespace TurismoWebAppMVC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Viagem");
-                });
-
-            modelBuilder.Entity("TurismoWebAppMVC.Models.PontoTuristico", b =>
-                {
-                    b.HasOne("TurismoWebAppMVC.Models.Estado", "Estado")
-                        .WithMany()
-                        .HasForeignKey("EstadoId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

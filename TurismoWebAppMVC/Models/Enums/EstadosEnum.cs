@@ -6,11 +6,34 @@ using System.Threading.Tasks;
 
 namespace TurismoWebAppMVC.Models.Enums
 {
-    public enum EstadosEnum
+    public enum EstadosEnum : int
     {
-        RJ,
-        SP,
+        AC,
+        AL,
+        AP,
+        AM,
+        BA,
+        CE,
+        DF,
+        ES,
+        GO,
+        MA,
+        MT,
+        MS,
         MG,
-        ES
+        PA,
+        PB,
+        PR,
+        PE,
+        PI,
+        RJ,
+        RN,
+        RS,
+        RO,
+        RR,
+        SC,
+        SP,
+        SE,
+        TO
     }
 }
